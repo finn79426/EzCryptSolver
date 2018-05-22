@@ -8,9 +8,9 @@ Inspiration from [kaibro's EasyWebSolver](https://github.com/w181496/EasySolver)
 # ToDo
 
 - **待完工**
-- [  ] Find more encode type！
-- [  ] Usage add
-- [  ] Import verbose mode
+- [ ] Find more encode type！
+- [ ] Usage add
+- [ ] Import verbose mode
 - [x] ~~Specified FLAG header~~
-- [  ]Double Encoding support
+- [ ]Double Encoding support
 
