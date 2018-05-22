@@ -7,10 +7,10 @@ Inspiration from [kaibro's EasyWebSolver](https://github.com/w181496/EasySolver)
 
 # ToDo
 
-- <font color=red>待完工</font>
-- Find more encode type！
-- Usage add
-- Import verbose mode
-- Specified FLAG header
-- Double Encoding support
+- **待完工**
+- [  ] Find more encode type！
+- [  ] Usage add
+- [  ] Import verbose mode
+- [x] ~~Specified FLAG header~~
+- [  ]Double Encoding support
 
