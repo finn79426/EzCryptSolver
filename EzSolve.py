@@ -12,15 +12,18 @@ import pyperclip  # install
 from argparse import ArgumentParser
 from termcolor import colored, cprint  # install
 
-
 # 如果 function 返回值(str)有包含 flag 開頭，即結束爆破
 
 
 # Quick
 
 def Hexadecimal(cipher, key):
+    decode = ""
     cipher = cipher.replace(" ", "")  # clean space
-    decode = cipher.decode("hex")
+    try:
+        decode = cipher.decode("hex")
+    except TypeError:
+        pass # if TypeError, mean cipher has a word out of G-Z words
 
     # has key
     if key != None:
@@ -113,7 +116,38 @@ def Decimal(cipher, key):
         print "==========", name, "==========\n"
 
 
-# def Base64():
+def Base64(cipher, key):
+    decode = ""
+    if " " in cipher:
+        pass # base64 do not allow space
+    
+    try:
+        decode = cipher.decode('base64')
+    except:
+        pass # if ERROR, maybe cipher is hex
+
+    # has key
+    if key != None:
+        if str(key) in decode:
+            cprint("FLAG found !!!!!", "green")
+            name = inspect.stack()[0][3]  # function name
+            print "==========", name, "=========="
+            cprint(decode, "magenta")
+            print "==========", name, "=========="
+
+            pyperclip.copy(decode)
+            print "\nAlread copy to your clipboard. :)"
+            sys.exit(0)
+        else:
+            pass
+    # no key
+    else:
+        name = inspect.stack()[0][3]  # function name
+        print "==========", name, "=========="
+        print decode
+        print "==========", name, "==========\n"
+
+
 
 # def Base32():
 
@@ -145,3 +179,4 @@ if __name__ == "__main__":
     Hexadecimal(cipher, key)
     Binary(cipher, key)
     Decimal(cipher, key)
+    Base64(cipher, key)
