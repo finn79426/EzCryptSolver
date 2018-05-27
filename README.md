@@ -13,7 +13,7 @@ Inspiration from [kaibro's EasyWebSolver](https://github.com/w181496/EasySolver)
 - [ ] ~~Import verbose mode~~
 - [x] Specified FLAG header
 - [ ] ~~Double Encoding support~~
-- [ ] Decode algorithm Modularization
+- [x] Decode algorithm Modularization
 - [x] Key_Checking Function
 
 # Algorithm completed
