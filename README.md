@@ -83,9 +83,21 @@ By the way, **only specifie FLAG header can get Brute Force output**, like this�
 - [ ] ~~jsfuck~~
 - [ ] ~~aaencode~~
 
+# Contact
+
+My Email：finn79426@gmail.com
+
+如果你找到 Bug 或 Error msg，發給我一個 issues 
+如果你有更好的想法，歡迎 Fork
+
 # How to remove
 
+Just remove clone Folder is fine.
 
+```Shell
+cd ../
+rm EzCryptSolve -r
+```
 
 # ToDo
 
