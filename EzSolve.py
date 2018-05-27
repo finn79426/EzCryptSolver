@@ -180,13 +180,37 @@ def Base32(cipher, key):
         print decode
         print "==========", name, "==========\n"
 
+def Reverse(cipher, key):
+    decode = cipher[::-1]
+ 
+    # has key
+    if key != None:
+        if str(key) in decode:
+            cprint("FLAG found !!!!!", "green")
+            name = inspect.stack()[0][3]  # function name
+            print "==========", name, "=========="
+            cprint(decode, "magenta")
+            print "==========", name, "=========="
+
+            pyperclip.copy(decode)
+            print "\nAlread copy to your clipboard. :)"
+            sys.exit(0)
+        else:
+            pass
+    # no key
+    else:
+        name = inspect.stack()[0][3]  # function name
+        print "==========", name, "=========="
+        print decode
+        print "==========", name, "==========\n"
+   
+
 # def URLencode():
 
 # def jsfuck():
 
 # def aaencode():
 
-# def Reverse():
 
 # Medium
 
@@ -210,4 +234,4 @@ if __name__ == "__main__":
     Decimal(cipher, key)
     Base64(cipher, key)
     Base32(cipher, key)
-
+    Reverse(cipher, key)
