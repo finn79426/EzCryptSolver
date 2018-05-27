@@ -24,18 +24,11 @@ python2.7 & pip
 git clone https://github.com/finn79426/EzCryptSolver.git
 ```
 
-2. Run setup.sh to get library 
+2. Using pip to get essential libraries
 
-```Shell
-cd EzCryptSolver
-chmod +x setup.sh && ./setup.sh
-```
-
-If you have problems with the installation, you can use this commands to install.
-
-```Shell
-pip2 install pyperclip
-pip2 install termcolor
+```shell
+cd EzCryptSolve/
+pip install -r requirements.txt
 ```
 
 # Usage
