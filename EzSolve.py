@@ -11,7 +11,7 @@ import inspect
 import pyperclip  # install
 from argparse import ArgumentParser
 from termcolor import colored, cprint  # install
-
+from base64 import b32decode
 # 如果 function 返回值(str)有包含 flag 開頭，即結束爆破
 
 
@@ -124,7 +124,7 @@ def Base64(cipher, key):
     try:
         decode = cipher.decode('base64')
     except:
-        pass # if ERROR, maybe cipher is hex
+        pass # if any ERROR, mean cipher is not a Base64
 
     # has key
     if key != None:
@@ -149,7 +149,36 @@ def Base64(cipher, key):
 
 
 
-# def Base32():
+def Base32(cipher, key):
+    decode = ""
+    if " " in cipher:
+        pass # base32 do not allow space
+    
+    try:
+        decode = b32decode(cipher)
+    except:
+        pass # if any ERROR, mean cipher is not a Base32
+
+    # has key
+    if key != None:
+        if str(key) in decode:
+            cprint("FLAG found !!!!!", "green")
+            name = inspect.stack()[0][3]  # function name
+            print "==========", name, "=========="
+            cprint(decode, "magenta")
+            print "==========", name, "=========="
+
+            pyperclip.copy(decode)
+            print "\nAlread copy to your clipboard. :)"
+            sys.exit(0)
+        else:
+            pass
+    # no key
+    else:
+        name = inspect.stack()[0][3]  # function name
+        print "==========", name, "=========="
+        print decode
+        print "==========", name, "==========\n"
 
 # def URLencode():
 
@@ -180,3 +209,5 @@ if __name__ == "__main__":
     Binary(cipher, key)
     Decimal(cipher, key)
     Base64(cipher, key)
+    Base32(cipher, key)
+
