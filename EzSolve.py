@@ -33,6 +33,7 @@ def Hexadecimal(cipher, key):
 
             pyperclip.copy(decode)
             print "\nAlread copy to your clipboard. :)"
+            sys.exit(0)
         else:
             pass
     # no key
@@ -42,14 +43,19 @@ def Hexadecimal(cipher, key):
         print decode
         print "==========", name, "==========\n"
 
+
 def Binary(cipher, key):
     cipher = cipher.replace(" ", "")  # clean space
     decode = ""
-    for index in range(len(cipher)):
-        if index+1==8:
-            decode +=  chr(int(cipher[:index+1], 2))
-        elif (index+1)%8==0:
-            decode +=  chr(int(cipher[index-7:index+1], 2))
+    try:
+        for index in range(len(cipher)):
+            if index+1 == 8:
+                decode += chr(int(cipher[:index+1], 2))
+            elif (index+1) % 8 == 0:
+                decode += chr(int(cipher[index-7:index+1], 2))
+    except ValueError:
+        pass
+
     # has key
     if key != None:
         if str(key) in decode:
@@ -61,6 +67,7 @@ def Binary(cipher, key):
 
             pyperclip.copy(decode)
             print "\nAlread copy to your clipboard. :)"
+            sys.exit(0)
         else:
             pass
     # no key
@@ -71,7 +78,40 @@ def Binary(cipher, key):
         print "==========", name, "==========\n"
 
 
-# def Decimal():
+def Decimal(cipher, key):
+    decode = ""
+    if " " not in cipher:
+        pass  # if not had space, pass this algorithm
+    else:
+        try:
+            cipher_list_int = cipher.split(" ")
+            cipher_list_int = map(int, cipher_list_int)  # type = list&int
+            decode = [chr(word) for word in cipher_list_int]  # type = list&str
+            decode = "".join(decode)  # type = str
+        except ValueError:
+            pass # if cipher is hex, pass
+
+    # has key
+    if key != None:
+        if str(key) in decode:
+            cprint("FLAG found !!!!!", "green")
+            name = inspect.stack()[0][3]  # function name
+            print "==========", name, "=========="
+            cprint(decode, "magenta")
+            print "==========", name, "=========="
+
+            pyperclip.copy(decode)
+            print "\nAlread copy to your clipboard. :)"
+            sys.exit(0)
+        else:
+            pass
+    # no key
+    else:
+        name = inspect.stack()[0][3]  # function name
+        print "==========", name, "=========="
+        print decode
+        print "==========", name, "==========\n"
+
 
 # def Base64():
 
@@ -104,7 +144,4 @@ if __name__ == "__main__":
     # Decoding
     Hexadecimal(cipher, key)
     Binary(cipher, key)
-    
-
-
-
+    Decimal(cipher, key)
