@@ -6,6 +6,6 @@
 # Distributed under terms of the MIT license.
 #
 
-sudo -H pip install pyperclip
-sudo -H pip install termcolor
+sudo -H pip2 install pyperclip
+sudo -H pip2 install termcolor
 
