@@ -15,8 +15,6 @@ from base64 import b32decode
 # 如果 function 返回值(str)有包含 flag 開頭，即結束爆破
 
 
-# Quick
-
 def Hexadecimal(cipher, key):
     decode = ""
     cipher = cipher.replace(" ", "")  # clean space
@@ -27,18 +25,7 @@ def Hexadecimal(cipher, key):
 
     # has key
     if key != None:
-        if str(key) in decode:
-            cprint("FLAG found !!!!!", "green")
-            name = inspect.stack()[0][3]  # function name
-            print "==========", name, "=========="
-            cprint(decode, "magenta")
-            print "==========", name, "=========="
-
-            pyperclip.copy(decode)
-            print "\nAlread copy to your clipboard. :)"
-            sys.exit(0)
-        else:
-            pass
+        Key_Check(key, decode)
     # no key
     else:
         name = inspect.stack()[0][3]  # function name
@@ -61,18 +48,7 @@ def Binary(cipher, key):
 
     # has key
     if key != None:
-        if str(key) in decode:
-            cprint("FLAG found !!!!!", "green")
-            name = inspect.stack()[0][3]  # function name
-            print "==========", name, "=========="
-            cprint(decode, "magenta")
-            print "==========", name, "=========="
-
-            pyperclip.copy(decode)
-            print "\nAlread copy to your clipboard. :)"
-            sys.exit(0)
-        else:
-            pass
+        Key_Check(key, decode)
     # no key
     else:
         name = inspect.stack()[0][3]  # function name
@@ -84,7 +60,7 @@ def Binary(cipher, key):
 def Decimal(cipher, key):
     decode = ""
     if " " not in cipher:
-        pass  # if not had space, pass this algorithm
+        pass  # if not had space, can't decode as Decimal
     else:
         try:
             cipher_list_int = cipher.split(" ")
@@ -96,18 +72,7 @@ def Decimal(cipher, key):
 
     # has key
     if key != None:
-        if str(key) in decode:
-            cprint("FLAG found !!!!!", "green")
-            name = inspect.stack()[0][3]  # function name
-            print "==========", name, "=========="
-            cprint(decode, "magenta")
-            print "==========", name, "=========="
-
-            pyperclip.copy(decode)
-            print "\nAlread copy to your clipboard. :)"
-            sys.exit(0)
-        else:
-            pass
+        Key_Check(key, decode)
     # no key
     else:
         name = inspect.stack()[0][3]  # function name
@@ -118,9 +83,6 @@ def Decimal(cipher, key):
 
 def Base64(cipher, key):
     decode = ""
-    if " " in cipher:
-        pass # base64 do not allow space
-    
     try:
         decode = cipher.decode('base64')
     except:
@@ -128,18 +90,7 @@ def Base64(cipher, key):
 
     # has key
     if key != None:
-        if str(key) in decode:
-            cprint("FLAG found !!!!!", "green")
-            name = inspect.stack()[0][3]  # function name
-            print "==========", name, "=========="
-            cprint(decode, "magenta")
-            print "==========", name, "=========="
-
-            pyperclip.copy(decode)
-            print "\nAlread copy to your clipboard. :)"
-            sys.exit(0)
-        else:
-            pass
+        Key_Check(key, decode)
     # no key
     else:
         name = inspect.stack()[0][3]  # function name
@@ -161,18 +112,7 @@ def Base32(cipher, key):
 
     # has key
     if key != None:
-        if str(key) in decode:
-            cprint("FLAG found !!!!!", "green")
-            name = inspect.stack()[0][3]  # function name
-            print "==========", name, "=========="
-            cprint(decode, "magenta")
-            print "==========", name, "=========="
-
-            pyperclip.copy(decode)
-            print "\nAlread copy to your clipboard. :)"
-            sys.exit(0)
-        else:
-            pass
+        Key_Check(key, decode)
     # no key
     else:
         name = inspect.stack()[0][3]  # function name
@@ -182,12 +122,27 @@ def Base32(cipher, key):
 
 def Reverse(cipher, key):
     decode = cipher[::-1]
- 
+    
     # has key
     if key != None:
+        Key_Check(key, decode) 
+    # no key
+    else:
+        name = inspect.stack()[0][3]  # function name
+        print "==========", name, "=========="
+        print decode
+        print "==========", name, "==========\n"
+   
+
+
+def Key_Check(key, decode):
+    if decode == "":
+        pass
+    else:
         if str(key) in decode:
             cprint("FLAG found !!!!!", "green")
-            name = inspect.stack()[0][3]  # function name
+            name = inspect.stack()[1][3]  # caller function name
+            
             print "==========", name, "=========="
             cprint(decode, "magenta")
             print "==========", name, "=========="
@@ -197,13 +152,8 @@ def Reverse(cipher, key):
             sys.exit(0)
         else:
             pass
-    # no key
-    else:
-        name = inspect.stack()[0][3]  # function name
-        print "==========", name, "=========="
-        print decode
-        print "==========", name, "==========\n"
-   
+            
+
 
 # def URLencode():
 

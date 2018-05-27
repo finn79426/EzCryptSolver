@@ -14,7 +14,7 @@ Inspiration from [kaibro's EasyWebSolver](https://github.com/w181496/EasySolver)
 - [x] Specified FLAG header
 - [ ] ~~Double Encoding support~~
 - [ ] Decode algorithm Modularization
-- [ ] Key_Checking Function
+- [x] Key_Checking Function
 
 # Algorithm completed
 
