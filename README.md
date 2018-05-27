@@ -23,8 +23,8 @@ Inspiration from [kaibro's EasyWebSolver](https://github.com/w181496/EasySolver)
 - [x] Decimal
 - [x] Base64
 - [x] Base32
-- [ ] Caesar cipher (only specified FLAG header)
-- [x] Reverse string
+- [x] Brute force：Transposition Cipher (only specified FLAG header)
+- [x] brute force：Caesar cipher (only specified FLAG header)
 - [ ] URLencode
 - [ ] jsfuck
 - [ ] aaencode

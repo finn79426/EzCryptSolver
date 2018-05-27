@@ -21,7 +21,7 @@ def Hexadecimal(cipher, key):
     try:
         decode = cipher.decode("hex")
     except TypeError:
-        pass # if TypeError, mean cipher has a word out of G-Z words
+        pass  # if TypeError, mean cipher has a word out of G-Z words
 
     # has key
     if key != None:
@@ -68,7 +68,7 @@ def Decimal(cipher, key):
             decode = [chr(word) for word in cipher_list_int]  # type = list&str
             decode = "".join(decode)  # type = str
         except ValueError:
-            pass # if cipher is hex, pass
+            pass  # if cipher is hex, pass
 
     # has key
     if key != None:
@@ -86,7 +86,7 @@ def Base64(cipher, key):
     try:
         decode = cipher.decode('base64')
     except:
-        pass # if any ERROR, mean cipher is not a Base64
+        pass  # if any ERROR, mean cipher is not a Base64
 
     # has key
     if key != None:
@@ -97,18 +97,17 @@ def Base64(cipher, key):
         print "==========", name, "=========="
         print decode
         print "==========", name, "==========\n"
-
 
 
 def Base32(cipher, key):
     decode = ""
     if " " in cipher:
-        pass # base32 do not allow space
-    
+        pass  # base32 do not allow space
+
     try:
         decode = b32decode(cipher)
     except:
-        pass # if any ERROR, mean cipher is not a Base32
+        pass  # if any ERROR, mean cipher is not a Base32
 
     # has key
     if key != None:
@@ -120,19 +119,19 @@ def Base32(cipher, key):
         print decode
         print "==========", name, "==========\n"
 
+
 def Reverse(cipher, key):
     decode = cipher[::-1]
-    
+
     # has key
     if key != None:
-        Key_Check(key, decode) 
+        Key_Check(key, decode)
     # no key
     else:
         name = inspect.stack()[0][3]  # function name
         print "==========", name, "=========="
         print decode
         print "==========", name, "==========\n"
-   
 
 
 def Key_Check(key, decode):
@@ -142,7 +141,7 @@ def Key_Check(key, decode):
         if str(key) in decode:
             cprint("FLAG found !!!!!", "green")
             name = inspect.stack()[1][3]  # caller function name
-            
+
             print "==========", name, "=========="
             cprint(decode, "magenta")
             print "==========", name, "=========="
@@ -152,19 +151,43 @@ def Key_Check(key, decode):
             sys.exit(0)
         else:
             pass
-            
 
 
-# def URLencode():
+def Caesar_Cipher(cipher, key):
+    if key != None:
+        move = 1
+        for x in range(26):
+            decode = ""
+            for c in cipher:
+                if c.isalpha():
+                    if c.isupper():
+                        caps = True
+                    else:
+                        caps = False
+                    alphabet = ord(c.lower()) + move
+                    if alphabet > ord('z'):
+                        alphabet -= 26
+                    letter = chr(alphabet)
+                    if caps is True:
+                        letter = letter.upper()
+                    decode += letter
+                else:
+                    decode += c
+        
+            Key_Check(key, decode)
+            move += 1
 
-# def jsfuck():
-
-# def aaencode():
-
-
-# Medium
-
-# def Caesar_cipher():
+def Transposition_Cipher(cipher, key):
+    if key != None:
+        # 從切 2 開始
+        for cut in range(1, len(cipher)-1):
+            decode = ""
+            count = 0
+            for word in cipher:
+                count += 1
+                if count % cut == 0:
+                    decode += word
+            Key_Check(key, decode)
 
 
 if __name__ == "__main__":
@@ -185,3 +208,5 @@ if __name__ == "__main__":
     Base64(cipher, key)
     Base32(cipher, key)
     Reverse(cipher, key)
+    Caesar_Cipher(cipher, key)
+    Transposition_Cipher(cipher, key)
