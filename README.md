@@ -24,7 +24,7 @@ Inspiration from [kaibro's EasyWebSolver](https://github.com/w181496/EasySolver)
 - [x] Base64
 - [x] Base32
 - [x] Brute force：Transposition Cipher (only specified FLAG header)
-- [x] brute force：Caesar cipher (only specified FLAG header)
+- [x] Brute force：Caesar cipher (only specified FLAG header)
 - [ ] URLencode
 - [ ] jsfuck
 - [ ] aaencode
