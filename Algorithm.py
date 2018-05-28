@@ -7,6 +7,7 @@
 # Distributed under terms of the MIT license.
 
 import inspect
+import urlparse
 from base64 import b32decode
 from AuthFlag import Key_Check
 
@@ -75,7 +76,6 @@ def Decimal(cipher, key):
         print decode
         print "==========", name, "==========\n"
 
-
 def Base64(cipher, key):
     decode = ""
     try:
@@ -114,6 +114,20 @@ def Base32(cipher, key):
         print decode
         print "==========", name, "==========\n"
 
+def Urldecode(cipher, key):
+    decode = ''
+    try:
+        decode = urlparse.unquote(cipher)
+    except:
+        pass
+
+    if key != None:
+        Key_Check(key, decode)
+    else:
+        name = inspect.stack()[0][3]
+        print "==========", name, "=========="
+        print decode
+        print "==========", name, "==========\n"
 
 def Reverse(cipher, key):
     decode = cipher[::-1]
@@ -148,7 +162,7 @@ def Caesar_Cipher(cipher, key):
                     decode += letter
                 else:
                     decode += c
-        
+
             Key_Check(key, decode)
             move += 1
 

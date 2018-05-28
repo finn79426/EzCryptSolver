@@ -5,7 +5,7 @@
 # Copyright © 2018 howpwn <finn79426@gmail.com>
 #
 # Distributed under terms of the MIT license.
- 
+
 from argparse import ArgumentParser
 from Algorithm import *
 
@@ -27,6 +27,7 @@ if __name__ == "__main__":
     Decimal(cipher, key)
     Base64(cipher, key)
     Base32(cipher, key)
+    Urldecode(cipher, key)
     Reverse(cipher, key)
     Caesar_Cipher(cipher, key)
     Transposition_Cipher(cipher, key)
