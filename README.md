@@ -72,7 +72,7 @@ By the way, **only specifie FLAG header can get Brute Force output**, like this�
 - [x] Base32
 - [x] Brute force：Transposition Cipher (only specified FLAG header)
 - [x] Brute force：Caesar cipher (only specified FLAG header)
-- [ ] URLencode
+- [x] URLencode
 - [ ] ~~jsfuck~~
 - [ ] ~~aaencode~~
 
