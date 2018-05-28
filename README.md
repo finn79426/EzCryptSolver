@@ -27,7 +27,7 @@ git clone https://github.com/finn79426/EzCryptSolver.git
 2. Using pip to get essential libraries
 
 ```shell
-cd EzCryptSolve/
+cd EzCryptSolver
 pip install -r requirements.txt
 ```
 
