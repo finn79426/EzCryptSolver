@@ -1,16 +1,16 @@
 # EzCryptSolver
 
 This tool is to solve CTF decoding baby first Problem.
-Give me the cipher, and i will decrypt/decode it！
+Give me your cipher, and i will decrypt/decode it！
 
 Inspiration from [kaibro's EasyWebSolver](https://github.com/w181496/EasySolver)
 
 # Feature
 
-- Brute force all possible encoding
+- Brute force all possible encode
 - Specifie FLAG header
 - If find the FLAG, automatic copy to your clipboard
-- Brute force Classical cipher is supported
+- Brute force Classical cipher supported
 
 # Requisites
 
@@ -49,9 +49,10 @@ python2 EzSolve.py RkxBR3toMHdwd25fYmlnX2dnfQ== --key FLAG
 ```
 
 Now, you will get output like this：
+
 ![](https://i.imgur.com/l8ukYqt.png)
 
-If not find any pair Header, just no output.
+If not find any compare FLAG, just no output.
 
 One thing you should know, if your ciphertext has white space, use quotation marks, otherwise you will get an Error.
 
@@ -59,7 +60,7 @@ One thing you should know, if your ciphertext has white space, use quotation mar
 python2 EzSolve.py "46 4c 41 47 7b 68 30 77 70 77 6e 5f 62 69 67 5f 67 67 7d"
 ```
 
-By the way, **only specifie FLAG header can get Brute Force output**, like this：
+By the way, **only specified FLAG header can get Brute Force output**, like this：
 ![](https://i.imgur.com/H8OweEh.png)
 
 
@@ -80,12 +81,12 @@ By the way, **only specifie FLAG header can get Brute Force output**, like this�
 
 My Email：finn79426@gmail.com
 
-如果你找到 Bug 或 Error msg，發給我一個 issues 
-如果你有更好的想法，歡迎 Fork
+如果你找到 Bug 或 Error msg，發給我一個 issues <br>
+或者如果你有更好的想法，歡迎 Fork、PR
 
 # How to remove
 
-Just remove clone Folder is fine.
+Just remove the clone Folder.
 
 ```Shell
 cd ../
@@ -98,6 +99,6 @@ rm EzCryptSolve -r
 - [x] Decode algorithm Modularization
 - [x] Key_Checking Function
 - [ ] Find more encode type！
-- [ ] Usage add
+- [x] Usage add
 - [ ] ~~Import verbose mode~~
 - [ ] ~~Double Encoding support~~
