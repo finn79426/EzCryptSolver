@@ -63,10 +63,14 @@ python2 EzSolve.py "46 4c 41 47 7b 68 30 77 70 77 6e 5f 62 69 67 5f 67 67 7d"
 
 By the way, **only specified FLAG header can get Brute Force output**, like this：
 ![](https://i.imgur.com/H8OweEh.png)
+
+
 2018/7/26 Update:
 You can preparatory CTFs FLAG header, so you don't have to use ==--key== in CTF anymore!
+
 Add ==-l== to enable longlist support
 
+![](https://i.imgur.com/rkz2NFw.png)
 
 
 # Algorithm completed
