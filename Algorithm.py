@@ -11,6 +11,20 @@ import urlparse
 from base64 import b32decode
 from AuthFlag import Key_Check
 
+def CrackEveryEncode(cipher, key):
+    Hexadecimal(cipher, key)
+    Binary(cipher, key)
+    Decimal(cipher, key)
+    Base64(cipher, key)
+    Base32(cipher, key)
+    Urldecode(cipher, key)
+    Reverse(cipher, key)
+    Caesar_Cipher(cipher, key)
+    Transposition_Cipher(cipher, key)
+
+
+
+
 def Hexadecimal(cipher, key):
     decode = ""
     cipher = cipher.replace(" ", "")  # clean space

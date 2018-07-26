@@ -74,10 +74,9 @@ By the way, **only specified FLAG header can get Brute Force output**, like this
 - [x] Base32
 - [x] Brute force：Transposition Cipher (only specified FLAG header)
 - [x] Brute force：Caesar cipher (only specified FLAG header)
-- [x] URLencode
+- [ ] ~~URLencode~~
 - [ ] ~~jsfuck~~
 - [ ] ~~aaencode~~
-- [ ] Customize your FLAG header list
 
 # Contact
 
@@ -104,3 +103,4 @@ rm EzCryptSolve -r
 - [x] Usage add
 - [ ] ~~Import verbose mode~~
 - [ ] ~~Double Encoding support~~
+- [x] Customize your FLAG header list

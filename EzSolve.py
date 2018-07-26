@@ -12,22 +12,24 @@ from Algorithm import *
 
 if __name__ == "__main__":
     # argument processing
-    parser = ArgumentParser(description="")
+    parser = ArgumentParser()
     parser.add_argument("-k", "--key", dest="key",
-                        type=str, help="Specify FLAG Header")
+                        type=str, help="Specify FLAG header")
     parser.add_argument("cipher")
-
+    parser.add_argument("-l", help="Enable lone FLAG header list support", action='store_true') # Store Longlist flag
     args = parser.parse_args()
-    cipher = args.cipher
-    key = args.key
 
-    # Decoding
-    Hexadecimal(cipher, key)
-    Binary(cipher, key)
-    Decimal(cipher, key)
-    Base64(cipher, key)
-    Base32(cipher, key)
-    Urldecode(cipher, key)
-    Reverse(cipher, key)
-    Caesar_Cipher(cipher, key)
-    Transposition_Cipher(cipher, key)
+
+    cipher = args.cipher # Default
+
+    # Processing the FLAG Header(key)
+    if args.l:
+        # Longlist mode ON
+        with open("./FLAGList.txt") as fp:
+            for oneline in fp:
+                key = oneline.strip("\n")
+                CrackEveryEncode(cipher, key) # Just centralize as one function
+    else:
+        # Just catch given key argument
+        key = args.key
+        CrackEveryEncode(cipher, key)
