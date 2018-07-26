@@ -11,6 +11,7 @@ Inspiration from [kaibro's EasyWebSolver](https://github.com/w181496/EasySolver)
 - Specifie FLAG header
 - If find the FLAG, automatic copy to your clipboard
 - Brute force Classical cipher supported
+- Specifie FLAG header as your custom list
 
 # Requisites
 
@@ -76,6 +77,7 @@ By the way, **only specified FLAG header can get Brute Force output**, like this
 - [x] URLencode
 - [ ] ~~jsfuck~~
 - [ ] ~~aaencode~~
+- [ ] Customize your FLAG header list
 
 # Contact
 
