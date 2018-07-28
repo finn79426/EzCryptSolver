@@ -66,9 +66,9 @@ By the way, **only specified FLAG header can get Brute Force output**, like this
 
 
 2018/7/26 Update:
-You can preparatory CTFs FLAG header, so you don't have to use ==--key== in CTF anymore!
+You can preparatory CTFs FLAG header, so you don't have to use `--key` in CTF anymore!
 
-Add ==-l== to enable longlist support
+Add `-l` to enable longlist support
 
 ![](https://i.imgur.com/rkz2NFw.png)
 
