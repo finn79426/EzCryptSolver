@@ -84,6 +84,7 @@ Add `-l` to enable longlist support
   - [x] Base32
   - [x] Base16
   - [x] URLencoded
+  - [x] HTML Entity
 - Brute force (Enable when using `-l` or `--key`)
   - [x] Transposition Cipher
   - [x] Caesar cipher
