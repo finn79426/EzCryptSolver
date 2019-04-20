@@ -41,7 +41,7 @@ python2 EzSolve.py RkxBR3toMHdwd25fYmlnX2dnfQ==
 ```
 
 Now, you will get output like this：
-![](https://i.imgur.com/N3DfWgv.png)
+![](./DEMO/1.png)
 
 And also, you can specifie CTF FLAG header, just add `--key` argument.
 
@@ -51,26 +51,33 @@ python2 EzSolve.py RkxBR3toMHdwd25fYmlnX2dnfQ== --key FLAG
 
 Now, you will get output like this：
 
-![](https://i.imgur.com/l8ukYqt.png)
+![](./DEMO/2.png)
 
 If not find any compare FLAG, just no output.
 
-One thing you should know, if your ciphertext has white space, use quotation marks, otherwise you will get an Error.
+If your ciphertext has white-space or any special character, Enclose them in quotation marks, otherwise you will get an Error.
 
 ```Shell
 python2 EzSolve.py "46 4c 41 47 7b 68 30 77 70 77 6e 5f 62 69 67 5f 67 67 7d"
 ```
 
-By the way, **only specified FLAG header can get Brute Force output**, like this：
-![](https://i.imgur.com/H8OweEh.png)
+![](./DEMO/3.png)
 
 
-2018/7/26 Update:
-You can preparatory CTFs FLAG header, so you don't have to use `--key` in CTF anymore!
+You can preparatory CTFs FLAG header, so you don't have to use `--key` anymore!
 
-Add `-l` to enable longlist support
+Add `-l` to enable longlist support:
+```
+python2 EzSolve.py RkxBR3toMHdwd25fYmlnX2dnfQ== -l
+```
 
-![](https://i.imgur.com/rkz2NFw.png)
+![](./DEMO/4.png)
+
+By the way, Only using `--key` or `-l` can get Brute Force output, like this：
+```
+python2 EzSolve.py LRGM{n0cvct_hom_mm} --key FLAG
+```
+![](./DEMO/5.png)
 
 
 # Algorithm completed
@@ -101,18 +108,8 @@ My Email：finn79426@gmail.com
 
 # How to remove
 
-Just remove the clone Folder.
-
 ```Shell
 pip2 uninstall -r requirements.txt --yes
 cd ../
 rm EzCryptSolve -r
 ```
-
-# ToDo
-
-- [x] Specified FLAG header
-- [x] Decode algorithm Modularization
-- [x] Key_Checking Function
-- [x] Usage add
-- [x] Customize your FLAG header list
