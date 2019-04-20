@@ -85,9 +85,12 @@ Add `-l` to enable longlist support
   - [x] Base16
   - [x] URLencoded
   - [x] HTML Entity
+  - [x] Quoted-printable
 - Brute force (Enable when using `-l` or `--key`)
   - [x] Transposition Cipher
   - [x] Caesar cipher
+- Others
+  - [x] Reverse String
 
 # Contact
 

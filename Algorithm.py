@@ -11,6 +11,7 @@ import urlparse
 from HTMLParser import HTMLParser
 from base64 import b32decode, b16decode
 from base58 import b58decode
+from quopri import decodestring
 from AuthFlag import Key_Check
 
 
@@ -25,6 +26,7 @@ def CrackEveryEncode(cipher, key=None):
     Base16(cipher, key)
     Urldecode(cipher, key)
     HTML_Entity(cipher, key)
+    Quoted_printable(cipher, key)
     Reverse(cipher, key)
     # Brute force
     if key is not None:
@@ -182,6 +184,22 @@ def HTML_Entity(cipher, key=None):
     else:
         name = inspect.stack()[0][3]
         print "{} : {}".format(name, decode.encode('utf-8'))
+
+
+def Quoted_printable(cipher, key=None):
+    decode = ""
+
+    try:
+        decode = decodestring(cipher)
+    except:
+        pass
+
+    # has key
+    if key is not None:
+        Key_Check(key, decode)
+    else:
+        name = inspect.stack()[0][3]  # function name
+        print "{} : {}".format(name, decode)
 
 
 def Reverse(cipher, key=None):
