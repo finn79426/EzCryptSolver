@@ -12,7 +12,8 @@ from base64 import b32decode
 from AuthFlag import Key_Check
 
 
-def CrackEveryEncode(cipher, key):
+def CrackEveryEncode(cipher, key=None):
+    # Encode transform
     Hexadecimal(cipher, key)
     Binary(cipher, key)
     Decimal(cipher, key)
@@ -20,11 +21,13 @@ def CrackEveryEncode(cipher, key):
     Base32(cipher, key)
     Urldecode(cipher, key)
     Reverse(cipher, key)
-    Caesar_Cipher(cipher, key)
-    Transposition_Cipher(cipher, key)
+    # Brute force
+    if key is not None:
+        Caesar_Cipher(cipher, key)
+        Transposition_Cipher(cipher, key)
 
 
-def Hexadecimal(cipher, key):
+def Hexadecimal(cipher, key=None):
     decode = ""
     cipher = cipher.replace(" ", "")  # clean space
     try:
@@ -40,7 +43,7 @@ def Hexadecimal(cipher, key):
         print "{} : {}".format(name, decode)
 
 
-def Binary(cipher, key):
+def Binary(cipher, key=None):
     cipher = cipher.replace(" ", "")  # clean space
     decode = ""
     try:
@@ -60,7 +63,7 @@ def Binary(cipher, key):
         print "{} : {}".format(name, decode)
 
 
-def Decimal(cipher, key):
+def Decimal(cipher, key=None):
     decode = ""
     if " " not in cipher:
         pass  # if not had space, can't decode as Decimal
@@ -81,7 +84,7 @@ def Decimal(cipher, key):
         print "{} : {}".format(name, decode)
 
 
-def Base64(cipher, key):
+def Base64(cipher, key=None):
     decode = ""
     try:
         decode = cipher.decode('base64')
@@ -96,7 +99,7 @@ def Base64(cipher, key):
         print "{} : {}".format(name, decode)
 
 
-def Base32(cipher, key):
+def Base32(cipher, key=None):
     decode = ""
     if " " in cipher:
         pass  # base32 do not allow space
@@ -114,7 +117,7 @@ def Base32(cipher, key):
         print "{} : {}".format(name, decode)
 
 
-def Urldecode(cipher, key):
+def Urldecode(cipher, key=None):
     decode = ''
     try:
         decode = urlparse.unquote(cipher)
@@ -129,7 +132,7 @@ def Urldecode(cipher, key):
         print "{} : {}".format(name, decode)
 
 
-def Reverse(cipher, key):
+def Reverse(cipher, key=None):
     decode = cipher[::-1]
 
     # has key
@@ -141,38 +144,36 @@ def Reverse(cipher, key):
 
 
 def Caesar_Cipher(cipher, key):
-    if key is not None:
-        move = 1
-        for x in range(26):
-            decode = ""
-            for c in cipher:
-                if c.isalpha():
-                    if c.isupper():
-                        caps = True
-                    else:
-                        caps = False
-                    alphabet = ord(c.lower()) + move
-                    if alphabet > ord('z'):
-                        alphabet -= 26
-                    letter = chr(alphabet)
-                    if caps is True:
-                        letter = letter.upper()
-                    decode += letter
+    move = 1
+    for x in range(26):
+        decode = ""
+        for c in cipher:
+            if c.isalpha():
+                if c.isupper():
+                    caps = True
                 else:
-                    decode += c
+                    caps = False
+                alphabet = ord(c.lower()) + move
+                if alphabet > ord('z'):
+                    alphabet -= 26
+                letter = chr(alphabet)
+                if caps is True:
+                    letter = letter.upper()
+                decode += letter
+            else:
+                decode += c
 
-            Key_Check(key, decode)
-            move += 1
+        Key_Check(key, decode)
+        move += 1
 
 
 def Transposition_Cipher(cipher, key):
-    if key is not None:
-        # 從切 2 開始
-        for cut in range(1, len(cipher)-1):
-            decode = ""
-            count = 0
-            for word in cipher:
-                count += 1
-                if count % cut == 0:
-                    decode += word
-            Key_Check(key, decode)
+    # 從切 2 開始
+    for cut in range(1, len(cipher)-1):
+        decode = ""
+        count = 0
+        for word in cipher:
+            count += 1
+            if count % cut == 0:
+                decode += word
+        Key_Check(key, decode)

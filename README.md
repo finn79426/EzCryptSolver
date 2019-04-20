@@ -15,7 +15,7 @@ Inspiration from [kaibro's EasyWebSolver](https://github.com/w181496/EasySolver)
 
 # Requisites
 
-python2.7 & pip
+python2.7 & pip2
 
 # Install
 
@@ -29,7 +29,7 @@ git clone https://github.com/finn79426/EzCryptSolver.git
 
 ```shell
 cd EzCryptSolver
-pip install -r requirements.txt
+pip2 install -r requirements.txt --user
 ```
 
 # Usage
@@ -75,16 +75,16 @@ Add `-l` to enable longlist support
 
 # Algorithm completed
 
-- [x] Hex
-- [x] Binary
-- [x] Decimal
-- [x] Base64
-- [x] Base32
-- [x] Brute force：Transposition Cipher (only specified FLAG header)
-- [x] Brute force：Caesar cipher (only specified FLAG header)
-- [ ] ~~URLencode~~
-- [ ] ~~jsfuck~~
-- [ ] ~~aaencode~~
+- Encode transform
+  - [x] Hex
+  - [x] Binary
+  - [x] Decimal
+  - [x] Base64
+  - [x] Base32
+  - [x] URLencoded
+- Brute force (Enable when using `-l` or `--key`)
+  - [x] Transposition Cipher
+  - [x] Caesar cipher
 
 # Contact
 
@@ -98,6 +98,7 @@ My Email：finn79426@gmail.com
 Just remove the clone Folder.
 
 ```Shell
+pip2 uninstall -r requirements.txt --yes
 cd ../
 rm EzCryptSolve -r
 ```
@@ -107,8 +108,5 @@ rm EzCryptSolve -r
 - [x] Specified FLAG header
 - [x] Decode algorithm Modularization
 - [x] Key_Checking Function
-- [ ] Find more encode type！
 - [x] Usage add
-- [ ] ~~Import verbose mode~~
-- [ ] ~~Double Encoding support~~
 - [x] Customize your FLAG header list
