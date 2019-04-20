@@ -11,6 +11,7 @@ import urlparse
 from base64 import b32decode
 from AuthFlag import Key_Check
 
+
 def CrackEveryEncode(cipher, key):
     Hexadecimal(cipher, key)
     Binary(cipher, key)
@@ -23,8 +24,6 @@ def CrackEveryEncode(cipher, key):
     Transposition_Cipher(cipher, key)
 
 
-
-
 def Hexadecimal(cipher, key):
     decode = ""
     cipher = cipher.replace(" ", "")  # clean space
@@ -34,14 +33,11 @@ def Hexadecimal(cipher, key):
         pass  # if TypeError, mean cipher has a word out of G-Z words
 
     # has key
-    if key != None:
+    if key is not None:
         Key_Check(key, decode)
-    # no key
     else:
         name = inspect.stack()[0][3]  # function name
-        print "==========", name, "=========="
-        print decode
-        print "==========", name, "==========\n"
+        print "{} : {}".format(name, decode)
 
 
 def Binary(cipher, key):
@@ -57,14 +53,11 @@ def Binary(cipher, key):
         pass
 
     # has key
-    if key != None:
+    if key is not None:
         Key_Check(key, decode)
-    # no key
     else:
         name = inspect.stack()[0][3]  # function name
-        print "==========", name, "=========="
-        print decode
-        print "==========", name, "==========\n"
+        print "{} : {}".format(name, decode)
 
 
 def Decimal(cipher, key):
@@ -81,14 +74,12 @@ def Decimal(cipher, key):
             pass  # if cipher is hex, pass
 
     # has key
-    if key != None:
+    if key is not None:
         Key_Check(key, decode)
-    # no key
     else:
         name = inspect.stack()[0][3]  # function name
-        print "==========", name, "=========="
-        print decode
-        print "==========", name, "==========\n"
+        print "{} : {}".format(name, decode)
+
 
 def Base64(cipher, key):
     decode = ""
@@ -98,14 +89,11 @@ def Base64(cipher, key):
         pass  # if any ERROR, mean cipher is not a Base64
 
     # has key
-    if key != None:
+    if key is not None:
         Key_Check(key, decode)
-    # no key
     else:
         name = inspect.stack()[0][3]  # function name
-        print "==========", name, "=========="
-        print decode
-        print "==========", name, "==========\n"
+        print "{} : {}".format(name, decode)
 
 
 def Base32(cipher, key):
@@ -119,14 +107,12 @@ def Base32(cipher, key):
         pass  # if any ERROR, mean cipher is not a Base32
 
     # has key
-    if key != None:
+    if key is not None:
         Key_Check(key, decode)
-    # no key
     else:
         name = inspect.stack()[0][3]  # function name
-        print "==========", name, "=========="
-        print decode
-        print "==========", name, "==========\n"
+        print "{} : {}".format(name, decode)
+
 
 def Urldecode(cipher, key):
     decode = ''
@@ -135,29 +121,27 @@ def Urldecode(cipher, key):
     except:
         pass
 
-    if key != None:
+    # has key
+    if key is not None:
         Key_Check(key, decode)
     else:
         name = inspect.stack()[0][3]
-        print "==========", name, "=========="
-        print decode
-        print "==========", name, "==========\n"
+        print "{} : {}".format(name, decode)
+
 
 def Reverse(cipher, key):
     decode = cipher[::-1]
 
     # has key
-    if key != None:
+    if key is not None:
         Key_Check(key, decode)
-    # no key
     else:
         name = inspect.stack()[0][3]  # function name
-        print "==========", name, "=========="
-        print decode
-        print "==========", name, "==========\n"
+        print "{} : {}".format(name, decode)
+
 
 def Caesar_Cipher(cipher, key):
-    if key != None:
+    if key is not None:
         move = 1
         for x in range(26):
             decode = ""
@@ -180,8 +164,9 @@ def Caesar_Cipher(cipher, key):
             Key_Check(key, decode)
             move += 1
 
+
 def Transposition_Cipher(cipher, key):
-    if key != None:
+    if key is not None:
         # 從切 2 開始
         for cut in range(1, len(cipher)-1):
             decode = ""

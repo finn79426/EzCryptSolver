@@ -7,7 +7,7 @@
 # Distributed under terms of the MIT license.
 
 from argparse import ArgumentParser
-from Algorithm import *
+from Algorithm import CrackEveryEncode
 
 
 if __name__ == "__main__":
@@ -16,11 +16,10 @@ if __name__ == "__main__":
     parser.add_argument("-k", "--key", dest="key",
                         type=str, help="Specify FLAG header")
     parser.add_argument("cipher")
-    parser.add_argument("-l", help="Enable lone FLAG header list support", action='store_true') # Store Longlist flag
+    parser.add_argument("-l", help="Enable lone FLAG header list support", action='store_true')  # Store Longlist flag
     args = parser.parse_args()
 
-
-    cipher = args.cipher # Default
+    cipher = args.cipher
 
     # Processing the FLAG Header(key)
     if args.l:
@@ -28,7 +27,7 @@ if __name__ == "__main__":
         with open("./FLAGList.txt") as fp:
             for oneline in fp:
                 key = oneline.strip("\n")
-                CrackEveryEncode(cipher, key) # Just centralize as one function
+                CrackEveryEncode(cipher, key)
     else:
         # Just catch given key argument
         key = args.key

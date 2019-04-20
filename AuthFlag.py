@@ -11,6 +11,7 @@ import inspect
 import pyperclip
 from termcolor import cprint
 
+
 def Key_Check(key, decode):
     if decode == "":
         pass
@@ -19,9 +20,8 @@ def Key_Check(key, decode):
             cprint("FLAG found !!!!!", "green")
             name = inspect.stack()[1][3]  # caller function name
 
-            print "==========", name, "=========="
+            print "========== {} ==========".format(name)
             cprint(decode, "magenta")
-            print "==========", name, "=========="
 
             pyperclip.copy(decode)
             print "\nAlread copy to your clipboard. :)"
