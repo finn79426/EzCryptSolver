@@ -8,7 +8,8 @@
 
 import inspect
 import urlparse
-from base64 import b32decode
+from base64 import b32decode, b16decode
+from base58 import b58decode
 from AuthFlag import Key_Check
 
 
@@ -18,7 +19,9 @@ def CrackEveryEncode(cipher, key=None):
     Binary(cipher, key)
     Decimal(cipher, key)
     Base64(cipher, key)
+    Base58(cipher, key)
     Base32(cipher, key)
+    Base16(cipher, key)
     Urldecode(cipher, key)
     Reverse(cipher, key)
     # Brute force
@@ -99,15 +102,47 @@ def Base64(cipher, key=None):
         print "{} : {}".format(name, decode)
 
 
+def Base58(cipher, key=None):
+    decode = ""
+
+    try:
+        decode = b58decode(cipher)
+    except:
+        pass  # if any ERROR, mean cipher is not a Base58
+
+    # has key
+    if key is not None:
+        Key_Check(key, decode)
+    else:
+        name = inspect.stack()[0][3]  # function name
+        print "{} : {}".format(name, decode)
+
+
 def Base32(cipher, key=None):
     decode = ""
     if " " in cipher:
-        pass  # base32 do not allow space
+        pass  # base32 not allow any whitespace
 
     try:
         decode = b32decode(cipher)
     except:
         pass  # if any ERROR, mean cipher is not a Base32
+
+    # has key
+    if key is not None:
+        Key_Check(key, decode)
+    else:
+        name = inspect.stack()[0][3]  # function name
+        print "{} : {}".format(name, decode)
+
+
+def Base16(cipher, key=None):
+    decode = ""
+
+    try:
+        decode = b16decode(cipher)
+    except:
+        pass  # if any ERROR, mean cipher is not a Base16
 
     # has key
     if key is not None:

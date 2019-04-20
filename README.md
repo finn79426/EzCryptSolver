@@ -80,7 +80,9 @@ Add `-l` to enable longlist support
   - [x] Binary
   - [x] Decimal
   - [x] Base64
+  - [x] Base58
   - [x] Base32
+  - [x] Base16
   - [x] URLencoded
 - Brute force (Enable when using `-l` or `--key`)
   - [x] Transposition Cipher
